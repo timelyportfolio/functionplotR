@@ -13,7 +13,7 @@ function-plot d3.js library as an R htmlwidget
 ## Installation
 
 ```r
-devtools::install_github("/functionplotR")
+devtools::install_github("timelyportfolio/functionplotR")
 ```
 
 ## Usage
@@ -24,4 +24,4 @@ library(functionplotR)
 
 ## License
 
-MIT + file LICENSE © [Kenton Russell](https://github.com/).
+MIT + file LICENSE © [Kenton Russell](https://github.com/timelyportfolio).
