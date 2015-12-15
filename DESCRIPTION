@@ -1,0 +1,12 @@
+Package: functionplotR
+Title: function-plot d3.js library as an R htmlwidget
+Version: 0.0.1
+Author: Kenton Russell
+Maintainer: Kenton Russell <kent.russell@timelyportfolio.com>
+Description: function-plot d3.js library as an R htmlwidget
+License: MIT + file LICENSE
+LazyData: true
+URL: https://github.com/timelyportfolio/functionplotR
+BugReports: https://github.com/timelyportfolio/functionplotR/issues
+Suggests: 
+    testthat
