@@ -1,16 +1,63 @@
-#' <Add Title>
+#' Interactive `d3.js` Function Plots
 #'
-#' <Add Description>
+#' Create an interactive d3.js based function plot as an htmlwidget.
 #'
+#' @example ./inst/examples/examples.R
+#' 
 #' @import htmlwidgets
 #'
 #' @export
-functionplot <- function(message, width = NULL, height = NULL) {
+functionplot <- function(
+  fn = NULL,
+  target = NULL,
+  title = NULL,
+  xDomain = NULL,
+  yDomain = NULL,
+  xLabel = NULL,
+  yLabel = NULL,
+  disableZoom = NULL,
+  grid = NULL,
+  tip = NULL,
+  annotations = NULL,
+  plugins = NULL,
+  ...,
+  width = NULL, height = NULL,
+  elementId = NULL
+) {
 
   # forward options using x
-  x = list(
-    message = message
+  x = Filter(
+    Negate(is.null),
+    list(
+      data = if(is.list(fn)){
+        fn
+      } else {
+        lapply(fn,function(f){
+          # if character/string then assume it is a function
+          #  that function-plot expects to be {fn: '...'}
+          if(is.character(f)){
+            list(fn = f)
+          } else {
+            f
+          }
+        })
+      },
+      target = target,
+      title = title,
+      xDomain = xDomain,
+      yDomain = yDomain,
+      xLabel = xLabel,
+      yLabel = yLabel,
+      disableZoom = disableZoom,
+      grid = grid,
+      tip = tip,
+      annotations = annotations,
+      plugins = plugins,
+      ...
+    )
   )
+  
+  attr(x,"TOJSON_ARGS") = c(auto_unbox=TRUE)
 
   # create widget
   htmlwidgets::createWidget(
@@ -18,7 +65,8 @@ functionplot <- function(message, width = NULL, height = NULL) {
     x,
     width = width,
     height = height,
-    package = 'functionplotR'
+    package = 'functionplotR',
+    elementId = elementId
   )
 }
 
