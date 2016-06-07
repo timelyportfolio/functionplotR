@@ -27,7 +27,14 @@ HTMLWidgets.widget({
         x.data = [x.data];
       }
       
-      return functionPlot(x);
+      var fp = functionPlot(x);
+      
+      // deal with chopped-off legend text
+      //  await https://github.com/maurizzzio/function-plot/issues/67
+      d3.select(el).select('text.top-right-legend')
+        .attr('dy','0.5em');
+      
+      return fp;      
   
     };
     
