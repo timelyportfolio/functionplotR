@@ -10,18 +10,18 @@ HTMLWidgets.widget({
     
     var drawPlot = function(el, instance) {
       
-      var x = instance.x;
-
       // clear out the container in case of dynamic/Shiny
       el.innerHTML = "";
-      
+
+      var x = instance.x;
+
       x.target = el;
       x.width = el.getBoundingClientRect().width;
       x.height = el.getBoundingClientRect().height;
       
       //insure data is an array
       if(!Array.isArray(x.data)){
-        x.data = [x.data]
+        x.data = [x.data];
       }
       
       return functionPlot(x);
@@ -41,8 +41,10 @@ HTMLWidgets.widget({
 
         instance.functionplot = drawPlot(el, instance);
 
-      }
-
+      }, 
+      
+      instance: instance
+      
     };
   }
 });
