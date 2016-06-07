@@ -13,7 +13,10 @@ HTMLWidgets.widget({
       // clear out the container in case of dynamic/Shiny
       el.innerHTML = "";
 
-      var x = instance.x;
+      // crudely copy our x in case we are redrawing
+      //  if we don't do this then the updateOnMouseMove
+      //  gets messed up
+      var x = JSON.parse(JSON.stringify(instance.x));
 
       x.target = el;
       x.width = el.getBoundingClientRect().width;
