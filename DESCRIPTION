@@ -1,7 +1,7 @@
 Package: functionplotR
 Title: function-plot d3.js library as an R htmlwidget
-Version: 0.0.1
-Date: 2015-12-15
+Version: 0.1.0
+Date: 2016-06-07
 Authors@R: c(
       person(
         "Mike", "Bostock"
@@ -28,4 +28,4 @@ URL: https://github.com/timelyportfolio/functionplotR
 BugReports: https://github.com/timelyportfolio/functionplotR/issues
 Suggests:
     testthat
-RoxygenNote: 4.1.1.9001
+RoxygenNote: 5.0.1
